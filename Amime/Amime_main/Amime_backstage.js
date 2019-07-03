@@ -386,6 +386,25 @@ function welcome() {
 }
 //------------------------------------------------------------------------------
 
+// first import the image in html with hidden = true
+function image(id,x, y, w, h) {
+  var id = id;
+  var x= x;
+  var y = y;
+  var w = w;
+  var h = h;
+  var img = document.getElementById(id);
+  c.beginPath();
+  c.rect(x- (w / 2), y- (h / 2), w, h);
+  c.fillStyle= 'rgba(0, 0, 0, 0.8)';
+  c.closePath();
+  c.fill();
+  c.drawImage(img, x- (w / 2), y- (h / 2), w, h);
+}
+
+
+//------------------------------------------------------------------------------
+
 function scene(function_, time) {
   var time = time;
   var function_ = function_;
@@ -412,7 +431,7 @@ var circle_1 = 'circle_animation1()';
 //------------------------------------------------------------------------------
 //Timing of all the scenes
 scene_0 = 0;
-scene_ = 3900;
+scene_ = 4000;
 scene_1 = 4000;
 //------------------------------------------------------------------------------
 function backstage() {
@@ -420,6 +439,7 @@ function backstage() {
   scene('clear()', scene_);
   scene(_R2, scene_1);
   scene(circle_1, scene_1);
+  scene('image("c_eqn", 300, 300, 300, 244/1036*300)', scene_1+4000);
 }
 
 backstage();

@@ -1,19 +1,11 @@
-var canvas = document.querySelector('canvas');
+var canvas = document.getElementById('c1');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var c = canvas.getContext('2d');
-
-function image(image_path, id_) {
-  var id_ = id_;
-  var image_path = image_path;
-  var img_tag = document.createElement('img');
-  img_tag.setAttribute('src', image_path);
-  img_tag.setAttribute('hidden', true);
-  img_tag.setAttribute('id', id_);
-  document.body.appendChild(img_tag);
-}
-image('./fma.png', 'fma')
-var img = document.getElementById('fma');
-c.drawImage(img, 0, 0, 300, (230/960)*300);
+var c1 = canvas.getContext('2d');
+c1.beginPath();
+c1.strokeStyle = 'red';
+c1.lineWidth = 6;
+c1.arcTo(100, 100, 100, 300, 100*Math.sin(Math.PI/24));
+c1.stroke();
